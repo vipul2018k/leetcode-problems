@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class SortArray {
     public static void main(String []args){
         int [] unsortedArr = new int[]{ 11,23,22,67,2,5,3,1,56,34};
-        int [] sortedArr = getSortedArr(unsortedArr);
-        System.out.println("Sorted Array: "+ Arrays.toString(sortedArr));
+        getSortedArr(unsortedArr);
+        System.out.println("Sorted Array: "+ Arrays.toString(unsortedArr));
     }
 
-    public static int [] getSortedArr(int [] unsortedArr){
+    public static void getSortedArr(int [] unsortedArr){
         for(int i=0;i<unsortedArr.length;i++){
             for(int j=i+1;j<unsortedArr.length;j++){
                 if(unsortedArr[i] > unsortedArr[j]){
@@ -17,7 +17,6 @@ public class SortArray {
                 }
             }
         }
-        return unsortedArr;
     }
 
     public static void swapArrayElement(int [] unsortedArr,int i,int j){
