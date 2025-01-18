@@ -1,23 +1,17 @@
 package com.vipuldev.leetcode.problems.sum;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class BinarySearch {
     public static void main(String []args){
         //binary search should use for large sorted array
-        int [] unsortedArr = new int[1000];
-        addArrayElement(unsortedArr);
+        int [] unsortedArr = IntStream.generate(()-> new Random().nextInt(100)).limit(100).toArray();
        // System.out.println("UnSorted Array :" + Arrays.toString(unsortedArr));
         quickSort(unsortedArr,0,unsortedArr.length-1);
        System.out.println("Sorted Array :" + Arrays.toString(unsortedArr));
     }
 
-    public static void addArrayElement(int [] unsortedArr){
-        Random random = new Random();
-        for(int i=0;i<unsortedArr.length;i++){
-            unsortedArr[i] = i + random.nextInt(10000);
-        }
-    }
 
     public static void quickSort(int [] unsortedArr,int low,int high){
         if(low< high){
@@ -30,7 +24,7 @@ public class BinarySearch {
     public static int partition(int [] unsortedArr,int low,int high){
         int pivot = unsortedArr[high];
         int i = low -1;
-        for(int j=low;j<high-1;j++){
+        for(int j=low;j<=high-1;j++){
             if(unsortedArr[j]< pivot){
                 i++;
                 swapArrayElement(unsortedArr,i,j);

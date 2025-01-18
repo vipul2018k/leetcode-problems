@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SortArray {
     public static void main(String []args){
-        int [] unsortedArr = new int[]{ 11,23,22,67,2,5,3,1,56,34};
+        int [] unsortedArr = new int[]{23,33,44,55,11,10,2,3,5,0,8,7,21,14,13};
         getSortedArr(unsortedArr);
         System.out.println("Sorted Array: "+ Arrays.toString(unsortedArr));
     }
