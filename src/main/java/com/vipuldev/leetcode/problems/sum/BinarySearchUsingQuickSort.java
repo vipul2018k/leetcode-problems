@@ -8,8 +8,29 @@ public class BinarySearchUsingQuickSort {
     public static void main(String [] args){
         int [] arr = IntStream.generate(()-> new Random().nextInt(1000)).limit(1000).toArray();
         quickSort(arr,0,arr.length-1);
-        int key = 555;
+        int result = searchElementUsingBinarySearch(arr,580);
+        if(result == -1){
+            System.out.println("Element is not present in the array");
+        }else{
+            System.out.println("Element is present at index "+ result);
+        }
         System.out.println("Sorted Array:"+ Arrays.toString(arr));
+    }
+
+    public static int searchElementUsingBinarySearch(int [] arr,int key){
+        int low = 0;
+        int high = arr.length-1;
+
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(arr[mid] == key)
+                return mid;
+            if(arr[mid] > key)
+                high = mid-1;
+            else
+                low = mid+1;
+        }
+        return -1;
     }
 
     public static void quickSort(int []arr,int low,int high){
